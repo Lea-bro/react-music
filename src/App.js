@@ -19,7 +19,6 @@ export default memo(function App() {
                 <Suspense fallback={<div>loading</div>}>
                     {renderRoutes(routes)}
                 </Suspense>
-                    
                 <HYAppFooter></HYAppFooter>
                 <HYAppPlayBar></HYAppPlayBar>
             </HashRouter>
