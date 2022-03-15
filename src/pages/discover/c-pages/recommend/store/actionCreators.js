@@ -4,7 +4,8 @@ import {
   getTopBanners,
   getHotRecommend,
   getNewAlbums,
-  getTopList
+  getTopList,
+  getSinger
 } from '@/service/recommend';
 
 const changeTopBannerAction = (res) => ({
@@ -35,6 +36,10 @@ const changeNewRankingAction = (res) => ({
 const changeOriginRankingAction = (res) => ({
   type: actionTypes.CHANGE_ORIGIN_RANKING,
   originRankings: res.playlist
+})
+const changeSettleSingerAction = (res) => ({
+  type:actionTypes.CHABGE_SETTLE_SINGER,
+  settleSinger:res.artists
 })
 
 
@@ -85,5 +90,14 @@ export const getTopListAction = (idx) => {
         default:
       }
     });
+  }
+}
+
+// 获取歌手
+export const getSingerAction = (limit) => {
+  return (dispatch) =>{
+    getSinger(limit).then(res => {
+      dispatch(changeSettleSingerAction(res))
+  })
   }
 }

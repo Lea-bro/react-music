@@ -28,4 +28,15 @@ export function getTopList(id) {
         id
       }
     })
-  }
+}
+
+export function getSinger(limit,type,area){
+    return request({
+        url:"/artist/list",
+        params:{
+            limit,
+            type,
+            area
+        }
+    })
+}
